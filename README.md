@@ -1,73 +1,102 @@
-# Welcome to your Lovable project
-
+## AI-Powered Interview Assistant 
 ## Project info
 
-**URL**: https://lovable.dev/projects/2297e309-3ba5-4b36-bbae-acf1d63c913f
+**URL**: https://ai-powered-interview-assistant-dun.vercel.app/
 
-## How can I edit this code?
+# Crisp — AI-Powered Interview Assistant
 
-There are several ways of editing your application.
+**Crisp** is a React-based web application designed to simulate an AI-powered interview process for full-stack candidates. It provides both an **Interviewee (Chat)** experience and an **Interviewer (Dashboard)** for managing candidate evaluations.
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/2297e309-3ba5-4b36-bbae-acf1d63c913f) and start prompting.
+## Features
 
-Changes made via Lovable will be committed automatically to this repo.
+### Interviewee (Chat)
+- Upload resume (PDF required, DOCX optional)
+- Automatic extraction of Name, Email, Phone from resume
+- Chatbot prompts candidate to fill missing fields
+- Timed AI-generated interview:
+  - 6 questions: 2 Easy → 2 Medium → 2 Hard
+  - Timers per question: Easy 20s, Medium 60s, Hard 120s
+  - Auto-submit on timer expiration
+- AI-generated final score and summary
+- Resume interrupted sessions with **“Welcome Back”** modal
 
-**Use your preferred IDE**
+### Interviewer (Dashboard)
+- List of candidates with sortable and searchable table
+- View candidate profile, chat history, and final AI summary
+- Detailed view showing questions, answers, and AI scores
+- Supports pause/resume for ongoing interviews
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Data Persistence
+- State management with **Redux**
+- Persistent storage using **redux-persist / IndexedDB**
+- All answers, timers, and progress are restored on page reload
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+## Tech Stack
+- **Frontend:** React, Redux, Ant Design / shadcn/ui
+- **File Parsing:** PDF/DOCX parsing libraries (e.g., `pdfjs-dist`, `docx`)
+- **Timers:** Per-question countdown with auto-submit
+- **State Persistence:** Redux + redux-persist / IndexedDB
+- **Optional AI:** OpenAI API for dynamic question generation and scoring
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+---
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## Installation
 
-# Step 3: Install the necessary dependencies.
-npm i
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/crisp-interview-assistant.git
+cd crisp-interview-assistant
+Install dependencies:
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+bash
+Copy code
+npm install
+Start the development server:
 
-**Edit a file directly in GitHub**
+bash
+Copy code
+npm start
+Open http://localhost:3000 in your browser.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Folder Structure
+php
+Copy code
+crisp-interview-assistant/
+├── public/
+├── src/
+│   ├── components/      # React components (Chat, Dashboard, Modals)
+│   ├── pages/           # Interviewee and Interviewer pages
+│   ├── redux/           # Redux store, slices, and persistence
+│   ├── utils/           # Helper functions (resume parsing, AI logic)
+│   ├── App.js           # Main app with routing
+│   └── index.js
+├── package.json
+└── README.md
+Usage
+Candidate: Upload resume → Fill missing info → Answer AI-generated questions
 
-**Use GitHub Codespaces**
+Interviewer: Monitor candidates, view chat history, see AI scoring and summaries
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Future Improvements
+Integrate real AI for question generation and scoring using OpenAI API
 
-## What technologies are used for this project?
+Add multi-role interview support
 
-This project is built with:
+Enhance UI with animations and better responsive design
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Support additional resume formats (e.g., TXT, RTF)
 
-## How can I deploy this project?
+License
+This project is MIT licensed.
 
-Simply open [Lovable](https://lovable.dev/projects/2297e309-3ba5-4b36-bbae-acf1d63c913f) and click on Share -> Publish.
+Author
+Supriya Lankotu
 
-## Can I connect a custom domain to my Lovable project?
+Location: Tirupati, Andhra Pradesh
 
-Yes, you can!
+GitHub: yourusername
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
